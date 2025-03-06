@@ -7,9 +7,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 
 @Composable
-fun ThreeDessertsScreen() {
+fun ThreeDessertsScreen(navController: androidx.navigation.NavController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -21,25 +22,32 @@ fun ThreeDessertsScreen() {
             color = Color.LightGray,
             title = "Flan",
             body = "Flan con salsa de caramelo.",
-            imageID = R.drawable.flan
-        )
+            imageID = R.drawable.flan,
+        ) {
+            // Navigate to the detail screen with a sample recipeId (e.g., 1)
+            navController.navigate("recipeDetail/1")
+        }
         RecipeVista(
             color = Color.LightGray,
             title = "Cheesecake",
             body = "Cheesecake cremoso y rico.",
             imageID = R.drawable.cheesecake
-        )
+        ) {
+            navController.navigate("recipeDetail/2")
+        }
         RecipeVista(
             color = Color.LightGray,
             title = "Brownie",
             body = "Brownie esponjoso con mucho sabor a chocolate.",
             imageID = R.drawable.brownie
-        )
+        ) {
+            navController.navigate("recipeDetail/3")
+        }
     }
 }
 
 @Preview(showBackground = true)
 @Composable
 fun ThreeDessertsPreview() {
-    ThreeDessertsScreen()
+    ThreeDessertsScreen(navController)
 }

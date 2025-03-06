@@ -3,6 +3,7 @@ package com.example.recetascocina
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.height
@@ -35,13 +36,16 @@ fun RecipeVista(
     color: Color,
     title: String,
     body: String,
-    imageID: Int
+    imageID: Int,
+    onClick: () -> Unit = {} // default empty lambda if not provided
 ) {
     Box(
         modifier = Modifier
             .height(160.dp)
             .width(700.dp)
             .background(color)
+            // Add clickable functionality if needed (e.g., using Modifier.clickable)
+            .clickable { onClick() }
     ) {
         Box(
             modifier = Modifier
