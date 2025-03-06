@@ -42,22 +42,19 @@ fun RecipeDetail(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Recipe title
         Text(
             text = title,
             fontSize = 24.sp,
             modifier = Modifier.padding(bottom = 8.dp)
         )
 
-        // Recipe description
         Text(
             text = description,
             modifier = Modifier.padding(bottom = 16.dp)
         )
 
-        // Ingredients Section
         Text(
-            text = "Ingredients",
+            text = "Ingredientes",
             fontSize = 20.sp,
             modifier = Modifier.padding(bottom = 8.dp)
         )
@@ -70,9 +67,8 @@ fun RecipeDetail(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Steps Section
         Text(
-            text = "Steps",
+            text = "Pasos",
             fontSize = 20.sp,
             modifier = Modifier.padding(bottom = 8.dp)
         )
@@ -85,20 +81,23 @@ fun RecipeDetail(
     }
 }
 
+
+
 @Preview(showBackground = true)
 @Composable
 fun RecipeDetailPreview() {
     RecipeDetail(
-        title = "Delicious Flan",
-        description = "A creamy dessert with a caramel sauce perfect for any occasion.",
-        imageResId = R.drawable.flan,  // Replace with your actual drawable resource
-        ingredients = listOf("Milk", "Eggs", "Sugar", "Vanilla extract"),
+        title = "Flan de vainilla",
+        description = "Flan de vainilla cremoso.",
+        imageResId = R.drawable.flan,
+        ingredients = listOf("Leche", "Huevos", "Azucar", "Extracto de vainilla"),
         steps = listOf(
-            "Preheat the oven to 350°F (175°C).",
-            "Mix the ingredients thoroughly.",
-            "Pour the mixture into a baking dish.",
-            "Bake in a water bath for 45 minutes.",
-            "Let it cool before serving."
+            "Precaliente el horno a 175 grados Celsius",
+            "Mezcle los ingredientes.",
+            "Ponga la mezcla en un molde para hornear.",
+            "Hornee a baño maría por 45 minutos.",
+            "Enfrie antes de servir.",
+            "Vualá!"
         )
     )
 }
