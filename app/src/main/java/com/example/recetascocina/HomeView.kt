@@ -49,5 +49,4 @@ fun ThreeDessertsScreen(navController: androidx.navigation.NavController) {
 @Preview(showBackground = true)
 @Composable
 fun ThreeDessertsPreview() {
-    ThreeDessertsScreen(navController)
 }
