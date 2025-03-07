@@ -1,20 +1,19 @@
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.compose.rememberNavController
-import com.example.recetascocina.CustomBar
 import com.example.recetascocina.R
 
 @Composable
@@ -28,78 +27,103 @@ fun RecipeDetail(
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .background(MaterialTheme.colorScheme.background)
             .verticalScroll(rememberScrollState())
             .padding(16.dp)
     ) {
-        // Recipe image
         Image(
             painter = painterResource(id = imageResId),
             contentDescription = "$title image",
             contentScale = ContentScale.Crop,
             modifier = Modifier
                 .fillMaxWidth()
-                .height(200.dp)
-                .clip(RoundedCornerShape(10.dp))
+                .height(250.dp)
+                .clip(RoundedCornerShape(12.dp))
+                .background(Color.Gray.copy(alpha = 0.2f))
         )
 
         Spacer(modifier = Modifier.height(16.dp))
 
         Text(
             text = title,
-            fontSize = 24.sp,
-            modifier = Modifier.padding(bottom = 8.dp)
+            style = MaterialTheme.typography.headlineLarge,
+            color = MaterialTheme.colorScheme.primary,
+            modifier = Modifier.padding(bottom = 4.dp)
         )
 
         Text(
             text = description,
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.8f),
             modifier = Modifier.padding(bottom = 16.dp)
         )
 
-        Text(
-            text = "Ingredientes",
-            fontSize = 20.sp,
-            modifier = Modifier.padding(bottom = 8.dp)
-        )
-        ingredients.forEach { ingredient ->
-            Text(
-                text = "• $ingredient",
-                modifier = Modifier.padding(bottom = 4.dp)
-            )
+        SectionTitle(text = "Ingredientes")
+        Card(
+            modifier = Modifier.fillMaxWidth(),
+            shape = RoundedCornerShape(8.dp),
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)
+        ) {
+            Column(modifier = Modifier.padding(12.dp)) {
+                ingredients.forEach { ingredient ->
+                    Text(
+                        text = "• $ingredient",
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = MaterialTheme.colorScheme.onSurface,
+                        modifier = Modifier.padding(bottom = 4.dp)
+                    )
+                }
+            }
         }
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        Text(
-            text = "Pasos",
-            fontSize = 20.sp,
-            modifier = Modifier.padding(bottom = 8.dp)
-        )
-        steps.forEachIndexed { index, step ->
-            Text(
-                text = "${index + 1}. $step",
-                modifier = Modifier.padding(bottom = 4.dp)
-            )
+        SectionTitle(text = "Pasos")
+        Card(
+            modifier = Modifier.fillMaxWidth(),
+            shape = RoundedCornerShape(8.dp),
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)
+        ) {
+            Column(modifier = Modifier.padding(12.dp)) {
+                steps.forEachIndexed { index, step ->
+                    Text(
+                        text = "${index + 1}. $step",
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = MaterialTheme.colorScheme.onSurface,
+                        modifier = Modifier.padding(bottom = 6.dp)
+                    )
+                }
+            }
         }
     }
 }
 
+@Composable
+fun SectionTitle(text: String) {
+    Text(
+        text = text,
+        style = MaterialTheme.typography.titleLarge,
+        color = MaterialTheme.colorScheme.secondary,
+        modifier = Modifier.padding(bottom = 8.dp)
+    )
+}
 
-
+// 🎭 PREVIEW PARA VER LA OBRA DE ARTE 🖼️
 @Preview(showBackground = true)
 @Composable
 fun RecipeDetailPreview() {
     RecipeDetail(
-        title = "Flan de vainilla",
-        description = "Flan de vainilla cremoso.",
+        title = "Flan de Vainilla 🍮",
+        description = "Un delicioso flan de vainilla cremoso con caramelo dorado y un toque casero.",
         imageResId = R.drawable.flan,
-        ingredients = listOf("Leche", "Huevos", "Azucar", "Extracto de vainilla"),
+        ingredients = listOf("Leche", "Huevos", "Azúcar", "Extracto de vainilla"),
         steps = listOf(
-            "Precaliente el horno a 175 grados Celsius",
-            "Mezcle los ingredientes.",
-            "Ponga la mezcla en un molde para hornear.",
-            "Hornee a baño maría por 45 minutos.",
-            "Enfrie antes de servir.",
-            "Vualá!"
+            "Precalentar el horno a 175°C.",
+            "Mezclar bien todos los ingredientes.",
+            "Verter la mezcla en un molde caramelizado.",
+            "Hornear a baño maría por 45 minutos.",
+            "Dejar enfriar antes de servir.",
+            "¡Disfruta este postre espectacular! 🍮"
         )
     )
 }
