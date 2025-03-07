@@ -20,10 +20,10 @@ import androidx.navigation.NavController
 
 @Composable
 fun CustomBar(
+    modifier: Modifier = Modifier,
     title: String,
     onBackClick: () -> Unit,
     backgroundColor: Color = Color.Blue,
-    modifier: Modifier = Modifier
 ) {
     Box(
         modifier = modifier

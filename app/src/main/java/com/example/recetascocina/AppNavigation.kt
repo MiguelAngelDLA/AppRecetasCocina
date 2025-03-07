@@ -23,7 +23,8 @@ fun AppNavigation() {
             val recipeId = backStackEntry.arguments?.getInt("recipeId") ?: 0
 
             when (recipeId) {
-                1 -> RecipeDetail(
+                1 -> RecipeDetailScreen(
+                    navController = navController,
                     title = "Flan de vainilla",
                     description = "Flan de vainilla cremoso.",
                     imageResId = R.drawable.flan,
@@ -37,7 +38,8 @@ fun AppNavigation() {
                         "¡Vualá!"
                     )
                 )
-                2 -> RecipeDetail(
+                2 -> RecipeDetailScreen(
+                    navController = navController,
                     title = "Cheesecake clásico",
                     description = "Un cheesecake cremoso con una base de galleta.",
                     imageResId = R.drawable.cheesecake,
@@ -51,7 +53,8 @@ fun AppNavigation() {
                         "Deje enfriar y refrigere por al menos 4 horas."
                     )
                 )
-                3 -> RecipeDetail(
+                3 -> RecipeDetailScreen(
+                    navController = navController,
                     title = "Brownie de chocolate",
                     description = "Brownie esponjoso con mucho sabor a chocolate.",
                     imageResId = R.drawable.brownie,
@@ -65,7 +68,8 @@ fun AppNavigation() {
                         "Vierta la mezcla en un molde y hornee por 25-30 minutos."
                     )
                 )
-                else -> RecipeDetail(
+                else -> RecipeDetailScreen(
+                    navController = navController,
                     title = "Receta Desconocida",
                     description = "No se han encontrado detalles para esta receta.",
                     imageResId = R.drawable.shrek,

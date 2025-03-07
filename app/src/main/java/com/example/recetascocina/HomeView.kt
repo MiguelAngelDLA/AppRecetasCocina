@@ -24,7 +24,6 @@ fun ThreeDessertsScreen(navController: androidx.navigation.NavController) {
             body = "Flan con salsa de caramelo.",
             imageID = R.drawable.flan,
         ) {
-            // Navigate to the detail screen with a sample recipeId (e.g., 1)
             navController.navigate("recipeDetail/1")
         }
         RecipeVista(
