@@ -31,5 +31,4 @@
 ## 📷 Capturas de pantalla
 | 📌 Pantalla Principal | 📜 Detalles de Receta |
 |-----------------|-----------------|
-|![image](https://github.com/user-attachments/assets/6383acfb-0e2c-4c38-a3b7-58d20eb4ac6b)
- | ![image](https://github.com/user-attachments/assets/cc86aa2a-0440-470f-ba5b-c897d15a91c6) |
+|![image](https://github.com/user-attachments/assets/6383acfb-0e2c-4c38-a3b7-58d20eb4ac6b) | ![image](https://github.com/user-attachments/assets/cc86aa2a-0440-470f-ba5b-c897d15a91c6) |
